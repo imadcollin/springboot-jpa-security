@@ -33,4 +33,17 @@ public class UserRepoTests {
         assertThat(existUser.getFirstName()).isEqualTo(savedUser.getFirstName());
     }
 
+    @Test
+    public void testFindUserByFirstName() {
+        String firstName = "test1";
+        User user = repository.findByFirstName(firstName);
+        assertThat(user).isNotNull();
+    }
+
+    @Test
+    public void testFindUserByFirstNameNotExist() {
+        String firstName = "fdgdshtrhrhst";
+        User user = repository.findByFirstName(firstName);
+        assertThat(user).isNull();
+    }
 }
