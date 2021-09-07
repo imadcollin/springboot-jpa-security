@@ -12,7 +12,7 @@ public class User {
     @Column(nullable = false, length = 45)
     private String firstName;
 
-    @Column(nullable = false, unique = true, length = 45)
+    @Column(nullable = false, length = 45)
     private String lastName;
 
     @Column(nullable = false, length = 20)
