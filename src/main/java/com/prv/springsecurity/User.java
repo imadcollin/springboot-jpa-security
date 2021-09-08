@@ -1,24 +1,34 @@
 package com.prv.springsecurity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "user")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+
     @Column(nullable = false, length = 45)
+    @Size(min = 5)
     private String firstName;
 
     @Column(nullable = false, length = 45)
+    @Size(min = 5)
     private String lastName;
 
     @Column(nullable = false, length = 20)
+    @Size(min = 5)
     private String password;
 
     @Column(nullable = false, length = 46)
+    @Size(min = 5)
+    @Email
     private String email;
 
     @Column(nullable = false, length = 46)
