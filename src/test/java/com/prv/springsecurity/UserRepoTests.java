@@ -34,16 +34,25 @@ public class UserRepoTests {
     }
 
     @Test
-    public void testFindUserByFirstName() {
-        String firstName = "test1";
-        User user = repository.findByFirstName(firstName);
+    public void testFindUserByEmail() {
+        String email = "test@gmail.com";
+        User user = repository.findByEmail(email);
         assertThat(user).isNotNull();
     }
 
     @Test
-    public void testFindUserByFirstNameNotExist() {
-        String firstName = "fdgdshtrhrhst";
-        User user = repository.findByFirstName(firstName);
+    public void testFindUserByEmailNotExist() {
+        String email = "dsfsdfsdf@gmail.com";
+        User user = repository.findByEmail(email);
         assertThat(user).isNull();
+    }
+
+    @Test
+    public void testFindUserByEmailIsExist() {
+        String email = "test@gmail.com";
+        String firstName = "test1";
+
+        User user = repository.findByEmail(email);
+        assertThat(user.getEmail()).isNotNull();
     }
 }
