@@ -8,21 +8,20 @@
 </head>
 <body>
 <div>
-    <h1>Form hhh </h1>
+    <h1>Form Register </h1>
 
-    <label>Full name:</label>
-    <form action="#" th:action="@{/reg}" method="post" th:object="${user}">
+    <form action="#" method="post" th:action="@{/reg}" th:object="${user}">
 
         <label>First name:</label>
-        <input type="text" th:field="*{firstName}" /><br/>
+        <input th:field="*{firstName}" type="text"/><br/>
         <br/>
 
         <label>Last name:</label>
-        <input type="text" th:field="*{lastName}" /><br/>
+        <input th:field="*{lastName}" type="text"/><br/>
         <br/>
 
         <label>Password:</label>
-        <input type="password" th:field="*{password}" /><br/>
+        <input th:field="*{password}" type="password"/><br/>
         <br/>
 
         <button type="submit">Register</button>
