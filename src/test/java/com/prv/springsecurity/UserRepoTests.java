@@ -26,7 +26,9 @@ public class UserRepoTests {
         user.setFirstName("Smith");
         user.setLastName("Lasan");
         user.setPassword("mypass");
-
+        user.setEmail("test@email.com");
+        user.setAge(25);
+        user.setGender(Gender.MALE);
         User savedUser = repository.save(user);
         User existUser = entityManager.find(User.class, savedUser.getId());
 

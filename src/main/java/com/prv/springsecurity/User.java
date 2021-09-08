@@ -82,5 +82,5 @@ public class User {
 }
 
 enum Gender {
-    UNKNOWN, MALE, FEMALE,
+     MALE, FEMALE
 }
