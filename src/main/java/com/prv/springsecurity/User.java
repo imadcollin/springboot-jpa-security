@@ -18,6 +18,15 @@ public class User {
     @Column(nullable = false, length = 20)
     private String password;
 
+    @Column(nullable = false, length = 46)
+    private String email;
+
+    @Column(nullable = false, length = 46)
+    private int age;
+
+    @Column(length = 46)
+    private Gender gender;
+
     public Long getId() {
         return id;
     }
@@ -45,4 +54,32 @@ public class User {
     public String getPassword() {
         return password;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+}
+
+enum Gender {
+    MALE, FEMALE
 }
