@@ -25,6 +25,7 @@ public class User {
     private int age;
 
     @Column(length = 46)
+    @Enumerated(EnumType.STRING)
     private Gender gender;
 
     public Long getId() {
@@ -81,5 +82,5 @@ public class User {
 }
 
 enum Gender {
-    MALE, FEMALE
+    UNKNOWN, MALE, FEMALE,
 }

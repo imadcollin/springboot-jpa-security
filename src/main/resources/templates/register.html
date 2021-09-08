@@ -32,6 +32,15 @@
         <input th:field="*{age}" type="number"/><br/>
         <br/>
 
+        <label>Gender:</label>
+        <input th:field="*{gender}" type="text"/><br/>
+        <br/>
+        <select name="gender">
+
+            <option th:each="gen : ${T(com.prv.springsecurity.Gender).values()}"
+                    th:value="${gen}" th:text="${gen}"></option>
+        </select>
+        <h1>{T(com.prv.springsecurity.Gender).MALE}</h1>
         <button type="submit">Register</button>
     </form>
 </div>
