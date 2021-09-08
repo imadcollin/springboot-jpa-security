@@ -5,42 +5,81 @@
 <head>
     <meta charset="UTF-8">
     <title>register</title>
+        <!-- CSS INCLUDE -->
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous"></link>
+
+        <!-- EOF CSS INCLUDE -->
+    </head>
 </head>
 <body>
-<div>
-    <h1>Form Register </h1>
 
-    <form action="#" method="post" th:action="@{/reg}" th:object="${user}">
+<div class="container-fluid">
+    <!-- PAGE TITLE -->
+    <div class="page-title">
+        <h2>
+            <span class="fa fa-arrow-circle-o-left"></span> Form Register
+        </h2>
+    </div>
 
-        <label>First name:</label>
-        <input th:field="*{firstName}" type="text"/><br/>
-        <br/>
+</div>
 
-        <label>Last name:</label>
-        <input th:field="*{lastName}" type="text"/><br/>
-        <br/>
 
-        <label>Password:</label>
-        <input th:field="*{password}" type="password"/><br/>
-        <br/>
+    <form th:action="@{/reg}" th:object="${user}" method="post" class="form">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input class="form-control" type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('firstName')}"  th:class="${#fields.hasErrors('firstName')}? error">
+                <p>  Invalid Name min character 5</p></div>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input class="form-control" type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('lastName')}"  th:class="${#fields.hasErrors('lastName')}? error">
+                <p>  Invalid last name min character 5</p></div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" type="text" th:field="*{password}" id="password" placeholder="Password">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('password')}" th:class="${#fields.hasErrors('password')}? error">
+          <p>  Invalid Password</p></div>
+        </div>
 
-        <label>Email:</label>
-        <input th:field="*{email}" type="email"/><br/>
-        <br/>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" type="text" th:field="*{email}" id="email" placeholder="Email">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('email')}"  th:class="${#fields.hasErrors('email')}? error">
+                <p>  Invalid Age</p></div>
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input class="form-control" type="text" th:field="*{age}" id="age" placeholder="Age">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('age')}" th:class="${#fields.hasErrors('age')}? error">
+                <p>  Invalid Age</p></div>
+        </div>
 
-        <label>Age:</label>
-        <input th:field="*{age}" type="number"/><br/>
-        <br/>
+        <div class="form-group">
 
-        <label>Gender:</label>
-        <br/>
-        <select name="gender">
+            <select name="gender">
 
-            <option th:each="gen : ${T(com.prv.springsecurity.Gender).values()}"
-                    th:value="${gen}" th:text="${gen}"></option>
-        </select>
-        <button type="submit">Register</button>
+                <option th:each="gen : ${T(com.prv.springsecurity.Gender).values()}"
+                        th:value="${gen}" th:text="${gen}"></option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
-</form></body>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"
+        integrity="sha256-VAvG3sHdS5LqTT+5A/aeq/bZGa/Uj04xKxY8KM/w9EE="
+        crossorigin="anonymous"></script>
+
+
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</body>
 </html>
